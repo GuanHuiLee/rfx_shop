@@ -21,7 +21,7 @@
 
 				<view class="d-flex a-center j-center a-self-end ml-auto px-2" style="height: 70rpx;background: #FFD43F;color: #CC4A00;border-top-left-radius: 40rpx;border-bottom-left-radius: 40rpx;">
 					<view class="line-h iconfont icon-huangguan mr-1"></view>
-					{{userLevel.name}} 减{{userLevel.discount}}%
+					{{loginStatus ?userLevel.name+' 减'+userLevel.discount+'%':'普通会员'}}
 				</view>
 			</view>
 		</view>
@@ -89,16 +89,13 @@
 					icon: "icon-buoumaotubiao46",
 					index: 4
 				}],
-				userLevel: {}
 			}
-		},
-		onLoad(e) {
-			this.getUserLevel();
 		},
 		computed: {
 			...mapState({
 				loginStatus: state => state.user.loginStatus,
-				userInfo: state => state.user.userInfo
+				userInfo: state => state.user.userInfo,
+				userLevel: state => state.user.userInfo.userLevel
 			})
 		},
 		methods: {
@@ -133,13 +130,6 @@
 					}
 				}
 			},
-			getUserLevel() {
-				this.$H.get('/level').then(res => {
-					console.log(res)
-					this.userLevel.name = res.name;
-					this.userLevel.discount = res.discount;
-				});
-			}
 		}
 	}
 </script>

@@ -44,7 +44,8 @@
 <script>
 	import mpvueCityPicker from "@/components/uni-ui/mpvue-citypicker/mpvueCityPicker.vue"
 	import {
-		mapActions
+		mapActions,
+		mapState,
 	} from "vuex"
 	export default {
 		components: {
@@ -66,6 +67,11 @@
 				projectList: [],
 			}
 		},
+		computed: {
+			...mapState({
+				loginStatus: state => state.user.loginStatus,
+			}),
+		},
 		onLoad(e) {
 			if (e.index) {
 				console.log(e.index);
@@ -77,7 +83,16 @@
 			...mapActions(['updatePathAction', 'createPathAction']),
 			// 提交
 			submit() {
-				// 验证表单
+				if (!this.loginStatus) {
+					uni.showToast({
+						title: '请先登录',
+						icon: 'none'
+					});
+				
+					return uni.navigateTo({
+						url: '/pages/login/login',
+					});
+				}
 
 				// 修改
 				if (this.isedit) {
