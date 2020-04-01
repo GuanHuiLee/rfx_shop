@@ -1,6 +1,6 @@
 {
-    "name" : "遵义外卖1",
-    "appid" : "__UNI__6D8BDC2",
+    "name" : "遵义外卖2",
+    "appid" : "__UNI__7DE5FB4",
     "description" : "",
     "versionName" : "1.0.0",
     "versionCode" : "100",
@@ -17,7 +17,8 @@
         },
         /* 模块配置 */
         "modules" : {
-            "Payment" : {}
+            "Payment" : {},
+            "Push" : {}
         },
         /* 应用发布信息 */
         "distribute" : {
@@ -54,7 +55,11 @@
                         "UniversalLinks" : ""
                     }
                 },
-                "ad" : {}
+                "ad" : {},
+                "push" : {
+                    "unipush" : {}
+                },
+                "oauth" : {}
             },
             "icons" : {
                 "android" : {

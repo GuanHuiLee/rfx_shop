@@ -353,7 +353,27 @@
         ,{
             "path" : "pages/subscribe/subscribe",
             "style" : {}
-        }
+        },
+		{
+		    "path" : "pages/subscribe/subscribe-list",
+		    "style" : {}
+		},
+		{
+		    "path" : "pages/message-list/message-list",
+		    "style" : {
+				"navigationBarTitleText":"消息列表"
+			}
+		},
+		{
+		    "path" : "pages/register/register",
+		    "style" : {
+		    	"app-plus":{
+		    		"bounce":"none",
+		    		"scrollIndicator":"none",
+		    		"titleNView":false
+		    	}
+		    }
+		}
         
     ],
 	// 全局配置
