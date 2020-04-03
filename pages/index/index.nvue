@@ -127,7 +127,14 @@
 				});
 			})
 			// 初始化数据
-			this.__init()
+			this.__init();
+			//监听系统通知栏消息点击事件  
+			plus.push.addEventListener('click', function(msg){  
+			    //处理点击消息的业务逻辑代码  
+				uni.navigateTo({
+					url: '../message-list/message-list',
+				});
+			}, false);  
 		},
 		beforeDestroy() {
 			// 移除监听事件
